@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+
+<script>
+    
+    //let playerSelection = prompt("Make your choice", '');
+
+    function computerPlay (){
+        let choice = ['rock', 'paper', 'scissors'];
+        return choice[ Math.floor( Math.random() * 3)]
+    }
+    
+    function playRound (playerSelection, computerSelection) {
+        switch(playerSelection) {
+            case 'rock':
+                if(computerSelection == 'rock') {
+                    return "Tie"
+                    break;
+                } else if (computerSelection == 'paper') {
+                    return "You Lose"
+                    break;
+                } else if (computerSelection == 'scissors') {
+                    return "You Win"
+                    break;
+                }
+            case 'paper':
+                if (computerSelection == 'rock') {
+                    return "You Win"
+                    break;
+                } else if (computerSelection =='paper') {
+                    return "Tie"
+                    break;
+                } else if (computerSelection == 'scissors') {
+                    return "You Lose"
+                    break;
+                }
+            case 'scissors':
+                if (computerSelection == 'rock') {
+                    return "You Lose"
+                    break;
+                } else if (computerSelection == 'paper') {
+                    return "You Win" 
+                    break;
+                } else if (computerSelection == 'scissors') {
+                    return "Tie" 
+                }
+        }
+    }
+
+function game () {
+    let pw=0;
+    let cw=0;
+    let i;
+    for (i=0; i<5; i++) {
+        const player = prompt( "rock paper scissors").toLowerCase()
+        const computer = computerPlay()
+        const result = playRound(player,computer)
+        console.log('Computer chose ' + computer)
+        console.log('You chose ' +player)
+        if(result =="You Lose") {
+            cw++
+            console.log("You Lose, " + computer + " beats " + player + ".")
+        } else if (result == "You Win") {
+            pw++
+            console.log("You Win, " + player + " beats " + computer + ".")
+        } else {
+            console.log("Tie")
+        }
+    }
+    if (pw > cw) {
+        console.log("You are the winner")
+    } else if (pw < cw) {
+        console.log("You lose this game")
+    } else {
+        console.log("It was a Tie")
+    }
+}
+
+game()
+
+</script>
+
+</body>
+
+
+</html>
